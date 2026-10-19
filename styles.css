@@ -648,6 +648,38 @@ button { color: inherit; }
 .mission-grid b { font-size: .78rem; }
 .mission-grid span { margin-top: 3px; font-size: .72rem; line-height: 1.5; }
 
+.christian-daimyo-panel {
+  border-top-color: var(--vermilion);
+}
+
+.christian-daimyo-grid {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.christian-daimyo-grid > div {
+  padding: 9px 10px;
+  background: var(--white);
+  border-top: 3px solid var(--vermilion);
+}
+
+.christian-daimyo-grid > div:nth-child(4),
+.christian-daimyo-grid > div:nth-child(5) {
+  grid-column: span 1;
+}
+
+.christian-daimyo-grid b,
+.christian-daimyo-grid span { display: block; }
+.christian-daimyo-grid b { font-size: .78rem; }
+.christian-daimyo-grid span { margin-top: 4px; font-size: .7rem; line-height: 1.48; }
+
+.compact-trade-block {
+  padding: 10px 12px;
+  background: rgba(182, 134, 43, .08);
+}
+
 .china-return { margin: 16px 0 19px; }
 .return-route { margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; list-style: none; }
 .return-route li { position: relative; padding: 8px; background: var(--white); font-size: .75rem; line-height: 1.5; }
@@ -858,7 +890,8 @@ button { color: inherit; }
   .page-head h2 { font-size: 1.65rem; }
   .page-count { font-size: .78rem; }
   .flow-strip { justify-content: flex-start; }
-  .chronology-grid, .trade-map, .family-line, .mission-grid, .return-route, .gate-list, .kaikoku-steps { grid-template-columns: 1fr; }
+  .chronology-grid, .trade-map, .family-line, .mission-grid, .christian-daimyo-grid, .return-route, .gate-list, .kaikoku-steps { grid-template-columns: 1fr; }
+  .christian-daimyo-grid > div:nth-child(4), .christian-daimyo-grid > div:nth-child(5) { grid-column: auto; }
   .trade-map i { transform: rotate(90deg); justify-self: center; }
   .return-route li:not(:last-child)::after { content: "↓"; top: auto; right: 50%; bottom: -14px; transform: translateX(50%); }
   .quiz-shell { width: calc(100% - 20px); padding: 25px 18px; box-shadow: 7px 7px 0 rgba(255, 255, 255, .09); }
@@ -875,7 +908,7 @@ button { color: inherit; }
 @page { size: A4 portrait; margin: 7mm; }
 
 @media print {
-  body { background: white; font-family: "Yu Gothic", sans-serif; line-height: 1.45; }
+  body { background: white; color: #000; font-family: "Yu Gothic", "Meiryo UI", "Meiryo", sans-serif; font-weight: 500; line-height: 1.45; }
   .skip-link, .site-header, .hero, .section-heading, .check-note, .quiz-section, .site-footer, .noscript { display: none !important; }
   .study-section { padding: 0; background: white; }
   .study-sheet {
@@ -921,6 +954,63 @@ button { color: inherit; }
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
   }
+  .print-page,
+  .print-page * {
+    color: #000 !important;
+    font-family: "Yu Gothic", "Meiryo UI", "Meiryo", sans-serif !important;
+    text-shadow: none !important;
+  }
+  .print-page b,
+  .print-page strong { font-weight: 800; background: none !important; }
+  .print-page h2,
+  .print-page h3 { font-weight: 800; letter-spacing: .01em; }
+  .print-page,
+  .page-head,
+  .page-lead,
+  .topic-block h3,
+  .episode-panel,
+  .episode-panel h3,
+  .religion-compare,
+  .religion-compare h3,
+  .bridge-panel,
+  .page-recap,
+  .why-box,
+  .key-line,
+  .learning-strip,
+  .final-memory,
+  .gate-list > div,
+  .kaikoku-steps > div,
+  .mini-table,
+  .mini-table th,
+  .mini-table td,
+  .christian-daimyo-grid > div,
+  .mission-grid > div,
+  .family-line span { border-color: #000 !important; }
+  .page-lead,
+  .flow-strip,
+  .why-box,
+  .key-line,
+  .episode-panel,
+  .religion-compare,
+  .foreign-box,
+  .learning-strip,
+  .final-memory,
+  .bridge-panel,
+  .christian-daimyo-grid > div,
+  .mission-grid > div,
+  .uprising-grid p,
+  .family-line span,
+  .chronology-grid p,
+  .policy-grid p,
+  .religion-grid p,
+  .gate-list > div,
+  .kaikoku-steps > div,
+  .compact-trade-block { background: #fff !important; }
+  .step-list li::before {
+    color: #000 !important;
+    background: #fff !important;
+    border: .35mm solid #000;
+  }
   .print-page:last-child { break-after: auto; page-break-after: auto; }
   .page-head { padding-bottom: 2.2mm; border-bottom-width: 2px; }
   .page-kicker { margin-bottom: .5mm; font-size: 6.7pt; }
@@ -961,6 +1051,12 @@ button { color: inherit; }
   .mission-grid > div { padding: 1.2mm 1.5mm; border-left-width: 2px; }
   .mission-grid b { font-size: 6.5pt; }
   .mission-grid span { margin-top: .5mm; font-size: 6pt; line-height: 1.4; }
+  .christian-daimyo-panel { padding: 2mm 2.2mm; }
+  .christian-daimyo-grid { margin-top: 1.4mm; grid-template-columns: repeat(3, 1fr); gap: 1.3mm; }
+  .christian-daimyo-grid > div { padding: 1.2mm 1.4mm; border-top-width: 2px; }
+  .christian-daimyo-grid b { font-size: 6.6pt; }
+  .christian-daimyo-grid span { margin-top: .5mm; font-size: 6.1pt; font-weight: 500; line-height: 1.38; }
+  .compact-trade-block { padding: 1.4mm 1.8mm; }
   .china-return { margin: 2.5mm 0 3mm; }
   .return-route { gap: 1.5mm; }
   .return-route li { padding: 1.4mm; font-size: 6.2pt; line-height: 1.42; }
